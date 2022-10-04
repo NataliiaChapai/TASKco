@@ -19,8 +19,8 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/board', tasksRouter);
 app.use('/api/boards', boardsRouter);
-app.use('/api/tasks', tasksRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' })

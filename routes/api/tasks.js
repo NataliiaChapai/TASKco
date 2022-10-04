@@ -10,22 +10,22 @@ const { addTask } = require('../../schemas');
 
 const router = express.Router();
 
-router.get('/', user, ctrlWrapper(tasks.getAll));
+router.get('/tasks/:taskId', user, isValidId, ctrlWrapper(tasks.getById));
 
-router.get('/:id', user, isValidId, ctrlWrapper(tasks.getById));
+router.patch('/tasks/:taskId', user, isValidId, ctrlWrapper(tasks.updateStatus));
 
-router.post('/', user, validation(addTask), ctrlWrapper(tasks.addTask));
+router.put('/tasks/:taskId', user, isValidId, ctrlWrapper(tasks.updateTask));
 
-router.patch('/:id', user, isValidId, ctrlWrapper(tasks.updateStatus));
-
-router.put('/:id', user, isValidId, ctrlWrapper(tasks.updateTask));
-
-router.delete('/:id', user, isValidId, ctrlWrapper(tasks.deleteTask));
+router.delete('/tasks/:taskId', user, isValidId, ctrlWrapper(tasks.deleteTask));
 
 router.get('/comments/:taskId', user, ctrlWrapper(tasks.getComments));
 
 router.post('/comments/:taskId', user, ctrlWrapper(tasks.addComment));
 
 router.delete('/comments/:taskId', user, ctrlWrapper(tasks.deleteComment));
+
+router.post('/:boardId', user, validation(addTask), ctrlWrapper(tasks.addTask));
+
+router.get('/:boardId', user, ctrlWrapper(tasks.getAll));
 
 module.exports = router;

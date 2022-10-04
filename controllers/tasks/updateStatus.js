@@ -1,23 +1,24 @@
 const { createError } = require('../../helpers');
-const { Task } = require('../../models');
+const { Task, Board } = require('../../models');
 
 const updateStatus = async (req, res) => {
-  const { id } = req.params;
-  const statusArray = ['Todo', 'In progress', 'Done', 'Archive'];
-  const currentTask = await Task.findById(id);
+  const { taskId } = req.params;
+  const { status } = req.body;
+  const currentTask = await Task.findById(taskId);
 
   if (!currentTask) {
     throw createError(400);
   }
+  const taskStatus = status.toLowerCase().split(' ').join('');
+  const taskCount = `taskCount.${taskStatus}`;
+  const { boardId } = currentTask;
+  const board = await Board.findById(boardId);
+  const oldTaskStatus = currentTask.status.toLowerCase().split(' ').join('');
+  const oldTaskCount = `taskCount.${oldTaskStatus}`
+  console.log(oldTaskStatus);
+  await board.updateOne({[taskCount]: board.taskCount[taskStatus] + 1, [oldTaskCount]: board.taskCount[oldTaskStatus] - 1});  
+  await currentTask.updateOne({ status });
 
-  const { status } = currentTask;
-  const index = statusArray.indexOf(status);
-  
-  if (index === 3 || index === -1) {
-    throw createError(400);
-    }
-    
-  await currentTask.updateOne({ status: statusArray[index + 1] });
   res.status(200).json({
     message: 'Task status updated successfully',
   });

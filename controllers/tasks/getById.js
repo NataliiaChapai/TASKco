@@ -3,8 +3,8 @@ const { createError } = require('../../helpers');
 const { Task } = require('../../models');
 
 const getById = async (req, res) => {
-  const { id } = req.params;
-  const task = await Task.findById(id);
+  const { taskId } = req.params;
+  const task = await Task.findById(taskId);
   if (!task) {
     throw createError(404);
   }
