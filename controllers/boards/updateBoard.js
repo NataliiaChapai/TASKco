@@ -12,8 +12,6 @@ const updateBoard = async (req, res) => {
   const newBoard = await board.updateOne({ name });
 
   res.status(200).json({
-    code: 200,
-    status: 'Success',
     newBoard
   });
 };

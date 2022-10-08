@@ -6,8 +6,6 @@ const addBoard = async (req, res) => {
   const board = await Board.create({ name, description, userId: _id });
   
   res.status(200).json({
-    code: 200,
-    status: 'Success',
     board
   });
 };
