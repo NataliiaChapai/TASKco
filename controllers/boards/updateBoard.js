@@ -9,10 +9,12 @@ const updateBoard = async (req, res) => {
   if (!board) {
     throw createError(400);
   }
-  await board.updateOne({ name });
+  const newBoard = await board.updateOne({ name });
 
   res.status(200).json({
-    message: 'Success',
+    code: 200,
+    status: 'Success',
+    newBoard
   });
 };
 
