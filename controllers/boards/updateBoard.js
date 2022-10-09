@@ -5,14 +5,13 @@ const { Board } = require('../../models');
 const updateBoard = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  const board = await Board.findOne({ id });
+  const board = await Board.findByIdAndUpdate(id, { name }, {new: true});
   if (!board) {
     throw createError(400);
   }
-  const newBoard = await board.updateOne({ name });
 
   res.status(200).json({
-    newBoard
+    board
   });
 };
 
