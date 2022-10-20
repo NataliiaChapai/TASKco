@@ -5,14 +5,13 @@ const { Task } = require('../../models');
 const updateTask = async (req, res) => {
   const { taskId } = req.params;
   const { name } = req.body;
-  const task = await Task.findById(taskId);
+  const task = await Task.findByIdAndUpdate(taskId, { name }, {new: true});
   if (!task) {
     throw createError(400);
   }
-  await task.updateOne({ name });
   
   res.status(200).json({
-    message: 'Success',
+    task
   });
 };
 
