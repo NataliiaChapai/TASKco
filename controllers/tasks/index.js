@@ -7,7 +7,8 @@ const updateStatus = require('./updateStatus');
 const addComment = require('./addComment');
 const deleteComment = require('./deleteComment');
 const getComments = require('./getComments');
-const changeColumnColor = require('./changeColumnColor');
+const changeColumnColor = require('./changeColor');
+const getColors = require('./getColors')
 
 module.exports = {
     addTask,
@@ -19,5 +20,6 @@ module.exports = {
     addComment,
     deleteComment,
     getComments,
-    changeColumnColor
+    changeColumnColor,
+    getColors
 }

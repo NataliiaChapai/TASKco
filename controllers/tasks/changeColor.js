@@ -2,7 +2,7 @@ const { createError } = require('../../helpers');
 
 const { ColorSet } = require('../../models');
 
-const changeColumnColor = async (req, res) => {
+const changeColor = async (req, res) => {
   const { boardId } = req.params;
   const { column, color } = req.body;
   const changes = await ColorSet.findOneAndUpdate({boardId}, { [column]: color});
@@ -15,4 +15,4 @@ const changeColumnColor = async (req, res) => {
   });
 };
 
-module.exports = changeColumnColor;
+module.exports = changeColor;
