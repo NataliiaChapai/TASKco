@@ -16,10 +16,10 @@ const updateStatus = async (req, res) => {
   const oldTaskStatus = currentTask.status.toLowerCase().split(' ').join('');
   const oldTaskCount = `taskCount.${oldTaskStatus}`
   await board.updateOne({[taskCount]: board.taskCount[taskStatus] + 1, [oldTaskCount]: board.taskCount[oldTaskStatus] - 1});  
-  await currentTask.updateOne({ status });
+  const task = await Task.findByIdAndUpdate(taskId, { status }, {new: true});
 
   res.status(200).json({
-    message: 'Task status updated successfully',
+    task
   });
 };
 
