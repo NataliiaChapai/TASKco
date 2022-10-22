@@ -28,4 +28,6 @@ router.post('/:boardId', user, validation(addTask), ctrlWrapper(tasks.addTask));
 
 router.get('/:boardId', user, ctrlWrapper(tasks.getAll));
 
+router.patch('/colors/:boardId', user, ctrlWrapper(tasks.changeColumnColor));
+
 module.exports = router;
