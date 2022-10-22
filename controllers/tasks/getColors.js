@@ -9,10 +9,7 @@ const getColors = async (req, res) => {
     throw createError(404);
   }
   res.json({
-    todo: colors.todo,
-    inprogress: colors.inprogress,
-    done: colors.done,
-    archive: colors.archive
+    colors
   });
 };
 
