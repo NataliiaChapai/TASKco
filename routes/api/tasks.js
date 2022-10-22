@@ -24,12 +24,12 @@ router.post('/comments/:taskId', user, ctrlWrapper(tasks.addComment));
 
 router.delete('/comments/:taskId', user, ctrlWrapper(tasks.deleteComment));
 
-router.post('/:boardId', user, validation(addTask), ctrlWrapper(tasks.addTask));
-
-router.get('/:boardId', user, ctrlWrapper(tasks.getAll));
-
 router.get('/colors/:boardId', user, ctrlWrapper(tasks.getColors));
 
 router.patch('/colors/:boardId', user, ctrlWrapper(tasks.changeColor));
+
+router.post('/:boardId', user, validation(addTask), ctrlWrapper(tasks.addTask));
+
+router.get('/:boardId', user, ctrlWrapper(tasks.getAll));
 
 module.exports = router;
