@@ -15,7 +15,7 @@ const taskSchema = Schema(
         type: String
     },
     comments: [{
-        message: {
+        coment: {
           type: String,
         },
         time: {

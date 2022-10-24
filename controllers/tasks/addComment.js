@@ -12,7 +12,7 @@ const addComment = async (req, res) => {
   await task.updateOne({ 
     $push: {
         comments: {
-          message: comment,
+          comment,
           time: new Date().toISOString(),
         },
       },
