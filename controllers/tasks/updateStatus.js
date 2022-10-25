@@ -15,6 +15,11 @@ const updateStatus = async (req, res) => {
   const board = await Board.findById(boardId);
   const oldTaskStatus = currentTask.status.toLowerCase().split(' ').join('');
   const oldTaskCount = `taskCount.${oldTaskStatus}`
+  if (taskCount === oldTaskCount) {
+    return res.status(200).json({
+      message: 'Status has not changed'
+    });
+  }
   await board.updateOne({[taskCount]: board.taskCount[taskStatus] + 1, [oldTaskCount]: board.taskCount[oldTaskStatus] - 1});  
   const task = await Task.findByIdAndUpdate(taskId, { status }, {new: true});
 
