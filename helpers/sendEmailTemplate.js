@@ -13,7 +13,7 @@ const sendEmailTemplate = (verificationToken) =>
          <td width="100%" height="300px" style="padding-bottom: 50px; 
          border-bottom-left-radius: 70px;  
          background: #F2F5FC;" valign="top">
-            <div style="padding: 10px"><h2>Confirm your email address to get started on TESKco</h2>
+            <div style="padding: 10px"><h2>Confirm your email address to get started on TASKco</h2>
             <div style="background-color: lightseagreen; color: #fff; border-radius: 20px; 
             width: 150px; 
             padding-top: 15px;
