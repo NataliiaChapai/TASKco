@@ -3,7 +3,7 @@ const { FRONTEND_URL } = process.env;
 const sendPasswordTemplate = (newPassword) =>
 `<table cellpadding="0" cellspacing="0" width="100%" style="font-family: 'Roboto';">
         <tr>
-            <td style="padding: 10px;">
+            <td style="padding: 10px; background-color: lightseagreen; color: #fff">
             <a href="${FRONTEND_URL}" target="_blank" style="text-decoration: none; font-weight: 600; font-size: 16px">
             TASKco
             </a>

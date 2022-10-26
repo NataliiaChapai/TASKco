@@ -3,7 +3,7 @@ const { FRONTEND_URL, BASE_URL } = process.env;
 const sendEmailTemplate = (verificationToken) =>
 `<table cellpadding="0" cellspacing="0" width="100%" style="font-family: 'Roboto';">
         <tr>
-            <td style="padding: 10px;">
+            <td style="padding: 10px; background-color: lightseagreen; color: #fff">
                 <a href="${FRONTEND_URL}" target="_blank" style="text-decoration: none; font-weight: 600; font-size: 16px">
                     TASKco
                 </a>
@@ -13,8 +13,8 @@ const sendEmailTemplate = (verificationToken) =>
          <td width="100%" height="300px" style="padding-bottom: 50px; 
          border-bottom-left-radius: 70px;  
          background: #F2F5FC;" valign="top">
-            <div style="padding: 10px"><h2>Confirm your email address to get started on TESTco</h2>
-            <div style="background-color: #FF751D; border-radius: 16px; 
+            <div style="padding: 10px"><h2>Confirm your email address to get started on TESKco</h2>
+            <div style="background-color: lightseagreen; color: #fff; border-radius: 20px; 
             width: 150px; 
             padding-top: 15px;
             padding-bottom: 15px; 
