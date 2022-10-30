@@ -14,4 +14,6 @@ router.patch('/avatars', user, upload.single('avatar'), ctrlWrapper(users.upload
 
 router.patch('/password', user, ctrlWrapper(users.updatePassword));
 
+router.patch('/google-avatar', user, ctrlWrapper(users.saveAvatarUrl));
+
 module.exports = router;

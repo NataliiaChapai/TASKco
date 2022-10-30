@@ -1,7 +1,7 @@
 const { registerSchema, loginSchema, verificationSchema } = require('./auth');
 const { addBoard } = require('./board');
 const { addTask } = require('./task');
-const { passwordSchema } = require('./user')
+const { passwordSchema, urlSchema } = require('./user')
 
 module.exports = {
     registerSchema,
@@ -9,5 +9,6 @@ module.exports = {
     verificationSchema,
     addBoard,
     addTask,
-    passwordSchema
+    passwordSchema,
+    urlSchema
 }
