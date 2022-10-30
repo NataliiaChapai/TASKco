@@ -4,19 +4,19 @@ const colorSetSchema = Schema(
   {
     todo: {
       type: String,
-      default: '#20b2ab33',
+      default: '#cdecea',
     },
     inprogress: {
         type: String,
-        default: '#20b2ab33',
+        default: '#cdecea',
     },
     done: {
         type: String,
-        default: '#20b2ab33',
+        default: '#cdecea',
     },
     archive: {
         type: String,
-        default: '#20b2ab33',
+        default: '#cdecea',
     },
     boardId: {
         type: String,
