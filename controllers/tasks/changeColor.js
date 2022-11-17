@@ -5,7 +5,7 @@ const { ColorSet } = require('../../models');
 const changeColor = async (req, res) => {
   const { boardId } = req.params;
   const { column, color } = req.body;
-  const columnColor = await ColorSet.find({boardId});
+  const columnColor = await ColorSet.findOne({boardId});
   if (!columnColor) {
     throw createError(400);
   }
