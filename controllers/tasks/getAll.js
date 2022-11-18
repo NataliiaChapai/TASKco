@@ -2,7 +2,7 @@ const { Task } = require('../../models');
 
 const getAll = async (req, res) => {
   const { boardId } = req.params;
-  const { page = 1, limit = 10, status } = req.query;
+  const { page = 1, limit = 100, status } = req.query;
   const offset = (page - 1) * limit;
   let query = { boardId };
   if (status) {
